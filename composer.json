@@ -1,0 +1,57 @@
+{
+    "name": "async-php/package-template",
+    "description": "____",
+    "license": "MIT",
+    "type": "library",
+    "keywords": [
+        "async",
+        "amphp"
+    ],
+    "authors": [
+        {
+            "name": "v.zanfir",
+            "email": "vadimzanfir@gmail.com",
+            "role": "maintainer"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "amphp/socket": "^2.1",
+        "phpinnacle/buffer": "^1.2"
+    },
+    "require-dev": {
+        "ergebnis/composer-normalize": "^2.31",
+        "phpstan/phpstan": "^1.10",
+        "phpunit/phpunit": "^10.2",
+        "squizlabs/php_codesniffer": "^3.7"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "AsyncPHP\\____\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "AsyncPHP\\____\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true
+        },
+        "sort-packages": true
+    },
+    "scripts": {
+        "phpcbf": "./vendor/bin/phpcbf -p --standard=phpcs.xml",
+        "phpcs": "./vendor/bin/phpcs --standard=phpcs.xml",
+        "phpstan": "./vendor/bin/phpstan analyse src tests",
+        "phpunit": "./vendor/bin/phpunit --testdox --do-not-cache",
+        "test": [
+            "@phpunit",
+            "@phpstan",
+            "@phpcs"
+        ]
+    }
+}
